@@ -13,8 +13,8 @@ export default {
   input: './src/index.ts',
 
   output: {
-    file: path.resolve(__dirname, './lib/index.js'), // 输出地址
-    format: 'umd',
+    file: path.resolve(__dirname, './dist/index.js'), // 输出地址
+    // format: 'umd', // 允许库同时支持在浏览器、Node.js 等环境下使用
     sourcemap: true  // 方便代码查看(tsconfig.json中的sourcemap同时修改为true)
   },
 
@@ -31,7 +31,7 @@ export default {
       'process.env': JSON.stringify(process.env)  // 需要什么自己定义
     }),
     isDev() && serve({   // 打包时不需要开服务
-      openPage:"/public/index.html",  // 打开的目录文件
+      openPage:"./index.html",  // 打开的目录文件
       open: true, // 是否打开
   
       port: 9527, // 自定义端口
